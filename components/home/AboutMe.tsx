@@ -1,5 +1,5 @@
 import React from "react";
-import { description, skills } from "../(data)/about";
+import { description, skills } from "../../app/(data)/about";
 import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa6";
 import Image from "next/image";
 

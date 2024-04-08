@@ -1,9 +1,9 @@
-import Header from "./(home)/Header";
-import Footer from "./(home)/Footer";
-import ProjectList from "./(home)/ProjectList";
-import Banner from "./(home)/Banner";
-import Career from "./(home)/Career";
-import AboutMe from "./(home)/AboutMe";
+import Header from "../components/home/Header";
+import Footer from "../components/home/Footer";
+import ProjectList from "../components/home/ProjectList";
+import Banner from "../components/home/Banner";
+import Career from "../components/home/Career";
+import AboutMe from "../components/home/AboutMe";
 
 export default function Home() {
   return (

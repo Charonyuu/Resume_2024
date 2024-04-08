@@ -8,6 +8,17 @@ export type CareerType = {
 
 export const career: CareerType[] = [
   {
+    icon: "company/metacrm.png",
+    title: "Frontend Engineer",
+    company: "MetaCRM",
+    date: "Feb 2023 ~ Jan 2024",
+    description: [
+      "Responsible for developing and maintaining the company's web3 CRM system.",
+      "Developed and maintained the company's CRM system using React, Redux, and related tools.",
+      "Make Storybook components for the company's design system.",
+    ],
+  },
+  {
     icon: "company/fanxi.png",
     title: "Full Stack Engineer",
     company: "FANXI",

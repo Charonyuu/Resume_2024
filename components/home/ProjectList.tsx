@@ -3,13 +3,14 @@ import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import { projectData } from "../(data)/project";
+import { projectData } from "../../app/(data)/project";
 export default function ProjectList() {
   const [sliderRef, instanceRef] = useKeenSlider(
     {
       slideChanged() {
         console.log("slide changed");
       },
+      loop: true, // Add infinite loop functionality
     },
     [
       // add plugins here
@@ -107,7 +108,7 @@ export default function ProjectList() {
                             target="_blank"
                             rel="noreferrer noopener"
                             href={project.link}
-                            className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
+                            className="block bg-teal-500 text-white px-5 py-3 text-center text-xs font-bold uppercase transition hover:bg-teal-400"
                           >
                             GO TO PROJECT
                           </a>

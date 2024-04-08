@@ -15,7 +15,7 @@ export const projectData = [
     image: "project/react-intl.webp",
     description:
       "react-intl snippet and extension for auto complete translate. It helps you to translate text to react-intl code faster.It can also add into en.json automatically.",
-    link: "https://ithelp.ithome.com.tw/articles/10316393",
+    link: "https://marketplace.visualstudio.com/items?itemName=charonyuu.intl-snippets",
   },
   {
     year: "2023",
