@@ -11,7 +11,7 @@ export const career: CareerType[] = [
     icon: "company/metacrm.png",
     title: "Frontend Engineer",
     company: "MetaCRM",
-    date: "Feb 2023 ~ Jan 2024",
+    date: "Feb 2024 ~ Present",
     description: [
       "Responsible for developing and maintaining the company's web3 CRM system.",
       "Developed and maintained the company's CRM system using React, Redux, and related tools.",

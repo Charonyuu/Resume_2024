@@ -85,7 +85,7 @@ export default function ProjectList() {
                       <img
                         alt={project.title}
                         src={project.image}
-                        className="aspect-square h-full w-full object-cover"
+                        className="aspect-square h-full w-full object-contain"
                       />
                     </div>
 
