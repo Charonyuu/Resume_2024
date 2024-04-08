@@ -6,7 +6,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 items-center gap-8 px-4 sm:px-6 lg:px-8">
         <a className="block text-teal-600" href="#">
           <span className="sr-only">Home</span>
-          <img src="cy.png" className="w-12 h-12 rounded-sm" />
+          <img src="Cy.png" className="w-12 h-12 rounded-sm" />
         </a>
 
         <nav aria-label="Global" className="hidden md:block">
@@ -38,7 +38,7 @@ export default function Header() {
               </a>
             </li>
 
-            <li>
+            {/* <li>
               <a
                 className="text-gray-500 transition hover:text-teal-500"
                 href="#"
@@ -55,7 +55,7 @@ export default function Header() {
                 {" "}
                 Blog{" "}
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
