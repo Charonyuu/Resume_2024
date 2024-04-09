@@ -3,10 +3,7 @@ import * as React from "react";
 import { NotionRenderer } from "react-notion-x";
 import "react-notion-x/src/styles.css";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import Link from "next/link";
-import { getPageTitle } from "notion-utils";
-import Head from "next/head";
 
 export default function NotionPage({
   recordMap,
@@ -37,20 +34,6 @@ export default function NotionPage({
     return null;
   }
 
-  const title = getPageTitle(recordMap);
-  console.log(title, recordMap);
-  const MyLink = ({
-    href,
-    children,
-    ...props
-  }: {
-    href: string;
-    children: React.ReactNode;
-  }) => (
-    <Link href={"Blog" + href}>
-      <a {...props}>{children}</a>
-    </Link>
-  );
   return (
     <>
       <NotionRenderer

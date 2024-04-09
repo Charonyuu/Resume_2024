@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="bg-white sticky top-0 z-20">
       <div className="mx-auto flex h-16 items-center gap-8 px-4 sm:px-6 lg:px-8">
-        <a className="block text-teal-600" href="#">
+        <a className="block text-teal-600" href="/">
           <span className="sr-only">Home</span>
           <img src="Cy.png" className="w-12 h-12 rounded-sm" />
         </a>

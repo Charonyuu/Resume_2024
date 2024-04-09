@@ -7,6 +7,7 @@ export const skills = [
     icon: "Frontend",
     skills: [
       "React",
+      "React Native",
       "Next.js",
       "TypeScript",
       "Styled Components",
