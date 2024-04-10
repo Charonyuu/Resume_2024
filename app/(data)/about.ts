@@ -24,7 +24,6 @@ export const skills = [
   {
     title: "Backend",
     icon: "Backend",
-
     skills: [
       "Node.js",
       "Express",
@@ -42,7 +41,6 @@ export const skills = [
   {
     title: "DataBase & Tools",
     icon: "DatabaseOrTool",
-
     skills: [
       "Git",
       "MongoDB",

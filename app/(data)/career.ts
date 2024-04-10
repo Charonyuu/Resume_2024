@@ -15,7 +15,9 @@ export const career: CareerType[] = [
     description: [
       "Responsible for developing and maintaining the company's web3 CRM system.",
       "Developed and maintained the company's CRM system using React, Redux, and related tools.",
-      "Make Storybook components for the company's design system.",
+      "Made Storybook components for the company's design system.",
+      "Created Bash scripts to automate project setup for QA testing.",
+      "Developed a VS Code Extension to help developers quickly insert react-intl snippets into their code.",
     ],
   },
   {
@@ -25,7 +27,7 @@ export const career: CareerType[] = [
     date: "Feb 2023 ~ Jan 2024",
     description: [
       "In charge of the company's product web design and feature development.",
-      "Refactored and optimized company projects while communicating and collaborating with company colleagues to ensure the product met the desired user experience.",
+      "Refactored and optimized company projects while communicating and collaborating with colleagues to ensure the product met the desired user experience.",
       "Engaged in frontend development using React, Next.js, and related tools.",
       "Applied Styled Components and Tailwind CSS for web design.",
       "Utilized the Redux state management library in conjunction with react-query to manage global states and reduce server load.",
@@ -34,7 +36,7 @@ export const career: CareerType[] = [
       "Applied Web3 technology to interact with blockchain, connecting smart contracts to develop required features.",
       "Used Dexie.js to temporarily store message data in IndexedDB.",
       "Used Git for version control and collaboration.",
-      "Employed tools such as LightHouse, react Profiler, and coverage to optimize projects.",
+      "Employed tools such as LightHouse, React Profiler, and coverage to optimize projects.",
     ],
   },
   {
