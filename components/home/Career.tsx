@@ -1,5 +1,5 @@
 import React from "react";
-import { career } from "../../app/(data)/career";
+import { career } from "../../app/_data/career";
 export default function Career() {
   return (
     <div className="relative w-full px-10" id="Career">

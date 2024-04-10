@@ -3,7 +3,7 @@ import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import { projectData } from "../../app/(data)/project";
+import { projectData } from "../../app/_data/project";
 export default function ProjectList() {
   const [sliderRef, instanceRef] = useKeenSlider(
     {
