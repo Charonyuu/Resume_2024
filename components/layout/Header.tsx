@@ -1,13 +1,19 @@
 "use client";
 import useOutsideClick from "@/hooks/useOutsideClick";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { HiOutlineMenu } from "react-icons/hi";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const ref = useOutsideClick<HTMLDivElement>(() => {
+  function handleClose() {
     setIsOpen(false);
-  });
+  }
+
+  const pathname = usePathname();
+  const ref = useOutsideClick<HTMLDivElement>(handleClose);
   return (
     <header className="bg-white sticky top-0 z-[999]">
       <div className="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -62,7 +68,10 @@ export default function Header() {
               <li>
                 <Link
                   href={`/Blog`}
-                  className="text-gray-500 transition hover:text-teal-500"
+                  className={cn(
+                    "text-gray-500 transition hover:text-teal-500",
+                    pathname.includes("/Blog") && "text-teal-500"
+                  )}
                 >
                   Blog
                 </Link>
@@ -75,20 +84,7 @@ export default function Header() {
           className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
         >
           <span className="sr-only">Toggle menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <HiOutlineMenu className="w-6 h-6" />
         </button>
         {isOpen && (
           <div
@@ -109,6 +105,7 @@ export default function Header() {
                 <li className="my-4 text-center">
                   <Link
                     className="text-gray-500 transition hover:text-teal-500"
+                    onClick={handleClose}
                     href="/#AboutMe"
                   >
                     About Me
@@ -116,26 +113,32 @@ export default function Header() {
                 </li>
 
                 <li className="my-4 text-center">
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-teal-500"
+                    onClick={handleClose}
                     href="/#Career"
                   >
                     Career
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="my-4 text-center">
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-teal-500"
+                    onClick={handleClose}
                     href="/#Projects"
                   >
                     Projects
-                  </a>
+                  </Link>
                 </li>
                 <li className="my-4 text-center">
                   <Link
+                    onClick={handleClose}
                     href={`/Blog`}
-                    className="text-gray-500 transition hover:text-teal-500"
+                    className={cn(
+                      "text-gray-500 transition hover:text-teal-500",
+                      pathname.includes("/Blog") && "text-teal-500"
+                    )}
                   >
                     Blog
                   </Link>
