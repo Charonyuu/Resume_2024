@@ -9,12 +9,12 @@ export default function Header() {
     setIsOpen(false);
   });
   return (
-    <header className="bg-white sticky top-0 z-20">
+    <header className="bg-white sticky top-0 z-[999]">
       <div className="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="items-center gap-8 hidden md:flex">
           <a className="text-teal-600 flex items-center" href="/#">
             <span className="sr-only">Home</span>
-            <img src="/Cy.png" className="w-12 h-12 rounded-sm" />
+            <img src="/Cy.png" className="w-12 h-12 rounded-sm" alt="logo" />
             <div className="ml-2 text-black font-semibold">
               <p className="leading-5">Charonyu's</p>
               <p className="leading-5">Portfolio</p>
@@ -96,7 +96,11 @@ export default function Header() {
             className="fixed border-r border-gray-300 shadow-lg border-solid top-0 left-0 flex h-screen md:hidden flex-col justify-between border-e bg-white w-[150px] items-center"
           >
             <div className="px-4 py-6">
-              <img src="/Cy.png" className="w-12 h-12 rounded-sm  mx-auto" />
+              <img
+                src="/Cy.png"
+                className="w-12 h-12 rounded-sm  mx-auto"
+                alt="logo"
+              />
               <div className="ml-2 text-black font-semibold text-center my-2">
                 <p className="leading-5">Charonyu's</p>
                 <p className="leading-5">Portfolio</p>

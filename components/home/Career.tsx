@@ -16,7 +16,11 @@ export default function Career() {
               <div className="bg-gray-600 w-4 h-4 absolute left-0 -translate-x-1/2 rounded-full" />
               <div className="ml-1 text-lg">{item.date}</div>
               <div className="flex items-center">
-                <img src={item.icon} className="w-16 h-16 rounded-full" />
+                <img
+                  src={item.icon}
+                  className="w-16 h-16 rounded-full"
+                  alt={item.title + "icon"}
+                />
                 <h3 className="text-base md:text-lg font-bold text-gray-900 ml-4">
                   {item.company}-{item.title}
                 </h3>
