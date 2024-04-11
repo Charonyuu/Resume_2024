@@ -31,7 +31,7 @@ export default function ProjectList() {
   };
   return (
     <section className="bg-gray-50 w-full" id="Projects">
-      <div className="mx-auto px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+      <div className="mx-auto px-4 py-8 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
           <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -62,11 +62,11 @@ export default function ProjectList() {
             </div>
           </div>
 
-          <div className="-mx-6 lg:col-span-2 lg:mx-0">
+          <div className=" lg:col-span-2 lg:mx-0">
             <div ref={sliderRef} className="keen-slider">
               {projectData.map((project, index) => (
                 <div
-                  className="keen-slider__slide px-8 lg:pr-8 lg:pl-0"
+                  className="keen-slider__slide md:px-8 lg:pr-8 lg:pl-0"
                   key={project.title}
                 >
                   <article className="flex bg-white transition hover:shadow-xl">
@@ -81,7 +81,7 @@ export default function ProjectList() {
                       </time>
                     </div>
 
-                    <div className="hidden sm:block sm:basis-56">
+                    <div className="hidden sm:block sm:basis-56 ">
                       <img
                         alt={project.title}
                         src={project.image}
@@ -93,7 +93,7 @@ export default function ProjectList() {
                       <>
                         <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                           <a href={project.link}>
-                            <h3 className="font-bold uppercase text-gray-900">
+                            <h3 className="font-bold uppercase text-gray-900 line-clamp-1">
                               {project.title}
                             </h3>
                           </a>
@@ -125,44 +125,18 @@ export default function ProjectList() {
         <div className="mt-8 flex justify-center gap-4 lg:hidden">
           <button
             aria-label="Previous slide"
-            id="keen-slider-previous"
-            className="rounded-full border border-teal-600 p-4 text-teal-600 transition hover:bg-teal-600 hover:text-white"
+            onClick={prevSlide}
+            className="rounded-full border border-teal-600 p-3 text-teal-600 transition hover:bg-teal-600 hover:text-white"
           >
-            <svg
-              className="size-5 -rotate-180 transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5l7 7-7 7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
+            <FaAngleLeft />
           </button>
 
           <button
             aria-label="Next slide"
-            id="keen-slider-next"
-            className="rounded-full border border-teal-600 p-4 text-teal-600 transition hover:bg-teal-600 hover:text-white"
+            onClick={nextSlide}
+            className="rounded-full border border-teal-600 p-3 text-teal-600 transition hover:bg-teal-600 hover:text-white"
           >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5l7 7-7 7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
+            <FaAngleRight />
           </button>
         </div>
       </div>

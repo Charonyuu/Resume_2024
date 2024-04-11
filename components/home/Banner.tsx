@@ -24,7 +24,7 @@ export default function Banner() {
 
             <a
               href="/#AboutMe"
-              className="block mt-4 w-25 rounded bg-white px-12 py-3 text-sm font-medium text-teal-600 shadow hover:text-teal-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
+              className="block mt-4 w-25 rounded bg-white  md:px-12 py-3 text-sm font-medium text-teal-600 shadow hover:text-teal-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
             >
               Know More About Me
             </a>

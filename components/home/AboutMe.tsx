@@ -12,7 +12,7 @@ export default function AboutMe() {
 
   return (
     <div id="AboutMe">
-      <div className="max-w-5xl mx-auto py-16 flex flex-col items-center">
+      <div className="max-w-5xl px-6 mx-auto py-16 flex flex-col items-center text-sm md:text-base">
         <Image
           width={160}
           height={160}
