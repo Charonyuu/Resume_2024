@@ -4,6 +4,7 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { projectData } from "../../app/_data/project";
+import Image from "next/image";
 export default function ProjectList() {
   const [sliderRef, instanceRef] = useKeenSlider(
     {
@@ -82,7 +83,9 @@ export default function ProjectList() {
                     </div>
 
                     <div className="hidden sm:block sm:basis-56 ">
-                      <img
+                      <Image
+                        height={200}
+                        width={200}
                         alt={project.title}
                         src={project.image}
                         className="aspect-square h-full w-full object-contain"

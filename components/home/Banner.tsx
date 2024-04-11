@@ -6,10 +6,13 @@ export default function Banner() {
       {/* Photo by <a href="https://unsplash.com/@cgower?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christopher Gower</a> on <a href="https://unsplash.com/photos/a-macbook-with-lines-of-code-on-its-screen-on-a-busy-desk-m_HRfLhgABo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
        */}
       <div className="relative w-full h-[400px]">
-        <img
+        <Image
+          height={400}
+          width={400}
           className="w-full h-full object-cover"
-          src="banner.jpg"
+          src="/banner.jpg"
           alt="Banner"
+          priority={true}
         />
         <div className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-55 " />
         <div className="absolute insert-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
