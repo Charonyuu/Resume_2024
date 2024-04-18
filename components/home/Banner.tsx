@@ -5,7 +5,7 @@ export default function Banner() {
     <section>
       {/* Photo by <a href="https://unsplash.com/@cgower?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christopher Gower</a> on <a href="https://unsplash.com/photos/a-macbook-with-lines-of-code-on-its-screen-on-a-busy-desk-m_HRfLhgABo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
        */}
-      <div className="relative w-full h-[400px]">
+      <div className="relative w-full h-[400px] md:block hidden">
         <Image
           height={400}
           width={400}
@@ -33,6 +33,11 @@ export default function Banner() {
             </a>
           </div>
         </div>
+      </div>
+      <div className="md:hidden block text-center">
+        <h1 className="text-3xl font-extrabold sm:text-5xl mx-auto">
+          CHARON YU RESUME
+        </h1>
       </div>
     </section>
   );

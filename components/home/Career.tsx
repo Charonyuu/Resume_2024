@@ -25,6 +25,16 @@ export default function Career() {
                   {item.company}-{item.title}
                 </h3>
               </div>
+              <div className=" flex flex-wrap gap-1">
+                {item.skills.map((skill: string) => (
+                  <span
+                    key={skill}
+                    className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
               <div className="ml-1">
                 <ul>
                   {item.description.map((desc, index) => (
