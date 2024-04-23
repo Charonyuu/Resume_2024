@@ -11,8 +11,8 @@ export default function Career() {
           Career
         </h2>
         <div className="border-l-2 border-gray-500 border-solid pl-8 relative">
-          {career.map((item, index) => (
-            <div key={index} className="mb-4">
+          {career.map((item) => (
+            <div key={item.company} className="mb-4">
               <div className="bg-gray-600 w-4 h-4 absolute left-0 -translate-x-1/2 rounded-full" />
               <div className="ml-1 text-lg">{item.date}</div>
               <div className="flex items-center">
@@ -38,7 +38,7 @@ export default function Career() {
               <div className="ml-1">
                 <ul>
                   {item.description.map((desc, index) => (
-                    <li key={index} className="mt-2 text-gray-700">
+                    <li key={desc} className="mt-2 text-gray-700">
                       {desc}
                     </li>
                   ))}

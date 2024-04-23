@@ -5,13 +5,12 @@ import "react-notion-x/src/styles.css";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-export default function NotionPage({
-  recordMap,
-  rootPageId,
-}: {
-  recordMap: any;
-  rootPageId: string;
-}) {
+type NotionPageProps = {
+  readonly recordMap: any;
+  readonly rootPageId: string;
+};
+
+export default function NotionPage({ recordMap, rootPageId }: NotionPageProps) {
   const Code = dynamic(() =>
     import("react-notion-x/build/third-party/code").then((m) => m.Code)
   );
@@ -30,42 +29,47 @@ export default function NotionPage({
     }
   );
 
+  const BlogLink = ({
+    href,
+    children,
+  }: {
+    href: string;
+    children: React.ReactNode;
+  }) => {
+    return <Link href={`/Blog/${href}`}>{children}</Link>;
+  };
+
   if (!recordMap) {
     return null;
   }
 
   return (
-    <>
-      <NotionRenderer
-        recordMap={recordMap}
-        fullPage={true}
-        darkMode={false}
-        rootPageId={rootPageId}
-        // previewImages={previewImagesEnabled}
-        components={{
-          PageLink: (props: {
-            href: any;
-            children:
-              | string
-              | number
-              | boolean
-              | React.ReactElement<
-                  any,
-                  string | React.JSXElementConstructor<any>
-                >
-              | React.ReactPortal
-              | null
-              | undefined;
-          }) => {
-            return <Link href={`/Blog/${props.href}`}>{props.children}</Link>;
-          },
-          Code,
-          Collection,
-          Equation,
-          Modal,
-          // nextImage: Image,
-        }}
-      />
-    </>
+    <NotionRenderer
+      recordMap={recordMap}
+      fullPage={true}
+      darkMode={false}
+      rootPageId={rootPageId}
+      // previewImages={previewImagesEnabled}
+      components={{
+        PageLink: (props: {
+          href: any;
+          children:
+            | string
+            | number
+            | boolean
+            | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+            | React.ReactPortal
+            | null
+            | undefined;
+        }) => {
+          return <BlogLink {...props} />;
+        },
+        Code,
+        Collection,
+        Equation,
+        Modal,
+        // nextImage: Image,
+      }}
+    />
   );
 }

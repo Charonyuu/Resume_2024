@@ -62,7 +62,7 @@ export default async function Blog(context: any) {
                         href="#"
                         className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
                       >
-                        Find out more
+                        <span>Find out more</span>
                         <span
                           aria-hidden="true"
                           className="block transition-all group-hover:ms-0.5 rtl:rotate-180"

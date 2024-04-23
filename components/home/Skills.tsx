@@ -22,19 +22,19 @@ export default function Skills() {
         </div>
 
         <div className="mt-4 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
-          {skills.map((skill, index) => (
-            <div key={skill.icon} className="">
+          {skills.map((skillItem) => (
+            <div key={skillItem.icon} className="">
               <div className="flex items-center mb-2 md:flex-row flex-col">
                 <span className="shrink-0 rounded-lg bg-gray-800 p-2">
-                  {icons[skill.icon]}
+                  {icons[skillItem.icon]}
                 </span>
-                <h2 className="text-lg font-bold ml-2">{skill.title}</h2>
+                <h2 className="text-lg font-bold ml-2">{skillItem.title}</h2>
               </div>
               <div className="flex items-start gap-4 md:text-left text-center">
                 <p className="mt-1 text-sm text-black">
-                  {skill.skills.map((item, index) => (
+                  {skillItem.skills.map((item) => (
                     <span
-                      key={index}
+                      key={item}
                       className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                     >
                       {item}

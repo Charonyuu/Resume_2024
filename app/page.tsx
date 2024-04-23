@@ -1,4 +1,3 @@
-import Header from "../components/layout/Header";
 import Footer from "../components/home/Footer";
 import ProjectList from "../components/home/ProjectList";
 import Banner from "../components/home/Banner";

@@ -1,15 +1,8 @@
 import React from "react";
 import { description } from "../../app/_data/about";
-import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa6";
 import Image from "next/image";
 
 export default function AboutMe() {
-  const icons: Record<string, React.ReactNode> = {
-    Frontend: <FaReact color="white" size="20px" />,
-    Backend: <FaNodeJs color="white" size="20px" />,
-    DatabaseOrTool: <FaDatabase color="white" size="20px" />,
-  };
-
   return (
     <div id="AboutMe">
       <div className="max-w-5xl px-6 mx-auto py-4 md:py-16 flex flex-col items-center text-sm md:text-base">
