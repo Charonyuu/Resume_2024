@@ -7,35 +7,30 @@ import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 
 export default function ProjectList() {
   return (
-    <section className="bg-gray-50 w-full" id="Projects">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Projects
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            以下是我開發的專案與作品，涵蓋 Web 應用、開發工具、開源套件等，持續學習與實作中。
-          </p>
-        </div>
+    <section id="Projects" className="py-16 md:py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold text-white mb-1">Projects</h2>
+        <div className="w-10 h-0.5 bg-teal-500 mb-2" />
+        <p className="text-gray-500 text-sm mb-8">
+          Web apps, developer tools, open-source packages, and more.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projectData.map((project) => {
             const hasDetailPage = !!project.slug;
 
             return (
               <div
                 key={project.title}
-                className={`group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300 flex flex-col ${
-                  project.featured
-                    ? "md:col-span-2 lg:col-span-2"
-                    : ""
+                className={`group rounded-xl overflow-hidden bg-[hsl(var(--card))] border border-[hsl(var(--border))] hover:border-teal-500/30 transition-all duration-300 flex flex-col ${
+                  project.featured ? "md:col-span-2" : ""
                 }`}
               >
                 {/* Image */}
                 <div
-                  className={`relative overflow-hidden ${project.imageBg || "bg-gray-100"} ${
-                    project.featured ? "h-56 sm:h-64" : "h-48"
-                  } ${project.contain ? "flex items-center justify-center" : ""}`}
+                  className={`relative overflow-hidden ${project.featured ? "h-48 sm:h-56" : "h-40"} ${
+                    project.contain ? "flex items-center justify-center bg-gray-800/50" : "bg-gray-800/50"
+                  }`}
                 >
                   {project.contain ? (
                     <Image
@@ -43,37 +38,35 @@ export default function ProjectList() {
                       alt={project.title}
                       width={200}
                       height={200}
-                      className="h-32 w-32 object-contain rounded-[22%] transition-transform duration-500 group-hover:scale-105"
+                      className="h-28 w-28 object-contain rounded-[22%] transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                     />
                   )}
                   {/* Year badge */}
-                  <div className="absolute top-3 left-3 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <div className="absolute top-3 left-3 bg-teal-500/90 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                     {project.year}
                   </div>
-                  {/* Featured badge */}
                   {project.featured && (
-                    <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    <div className="absolute top-3 right-3 bg-amber-500/90 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                       Latest
                     </div>
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-1 p-5">
-                  {/* Tags */}
+                <div className="flex flex-col flex-1 p-4">
                   {project.tags && (
-                    <div className="flex flex-wrap gap-1.5 mb-3">
+                    <div className="flex flex-wrap gap-1 mb-2">
                       {project.tags.slice(0, 4).map((tag) => (
                         <span
                           key={tag}
-                          className="inline-block bg-teal-50 text-teal-700 text-xs font-medium px-2 py-0.5 rounded-md"
+                          className="text-[10px] font-medium text-teal-300 bg-teal-500/10 px-2 py-0.5 rounded"
                         >
                           {tag}
                         </span>
@@ -81,37 +74,37 @@ export default function ProjectList() {
                     </div>
                   )}
 
-                  <h3 className="font-bold text-gray-900 text-lg leading-snug mb-2 line-clamp-2">
+                  <h3 className="font-semibold text-white text-base mb-1.5 line-clamp-1">
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4 flex-1">
+                  <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-3 flex-1">
                     {project.description}
                   </p>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-3 mt-auto pt-3 border-t border-gray-100">
+                  <div className="flex items-center gap-2 mt-auto pt-3 border-t border-[hsl(var(--border))]">
                     {hasDetailPage && (
                       <Link
                         href={`/projects/${project.slug}`}
-                        className="inline-flex items-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+                        className="inline-flex items-center gap-1.5 bg-teal-500 hover:bg-teal-400 text-gray-900 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
                       >
-                        查看介紹
-                        <FaArrowRight className="text-xs" />
+                        Details
+                        <FaArrowRight className="text-[10px]" />
                       </Link>
                     )}
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className={`inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
+                      className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors ${
                         hasDetailPage
-                          ? "text-gray-600 hover:text-teal-600 hover:bg-teal-50"
-                          : "bg-teal-500 hover:bg-teal-600 text-white"
+                          ? "text-gray-400 hover:text-teal-400 hover:bg-teal-500/10"
+                          : "bg-teal-500 hover:bg-teal-400 text-gray-900 font-semibold"
                       }`}
                     >
-                      {hasDetailPage ? "前往專案" : "查看專案"}
-                      <FaExternalLinkAlt className="text-xs" />
+                      {hasDetailPage ? "Visit" : "View Project"}
+                      <FaExternalLinkAlt className="text-[10px]" />
                     </a>
                   </div>
                 </div>

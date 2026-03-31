@@ -1,53 +1,68 @@
 import React from "react";
 import { career } from "../../app/_data/career";
+
 export default function Career() {
   return (
-    <div
-      className="relative w-full px-4 md:px-10 text-sm md:text-base"
-      id="Career"
-    >
-      <div className="max-w-5xl mx-auto md:py-16 py-4">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-          Career
-        </h2>
-        <div className="border-l-2 border-gray-500 border-solid pl-8 relative">
-          {career.map((item) => (
-            <div key={item.company} className="mb-4">
-              <div className="bg-gray-600 w-4 h-4 absolute left-0 -translate-x-1/2 rounded-full" />
-              <div className="ml-1 text-lg">{item.date}</div>
-              <div className="flex items-center">
+    <section id="Career" className="py-16 md:py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold text-white mb-1">Career</h2>
+        <div className="w-10 h-0.5 bg-teal-500 mb-8" />
+
+        <div className="relative pl-6 border-l border-gray-700">
+          {career.map((item, idx) => (
+            <div key={item.company} className={idx < career.length - 1 ? "mb-10" : ""}>
+              {/* Timeline dot */}
+              <div className="absolute left-0 -translate-x-1/2 w-3 h-3 rounded-full bg-teal-500 ring-4 ring-[hsl(var(--background))]" />
+
+              {/* Date */}
+              <p className="text-xs text-teal-400 font-medium tracking-wider uppercase mb-2">
+                {item.date}
+              </p>
+
+              {/* Company & Title */}
+              <div className="flex items-center gap-3 mb-3">
                 <img
                   src={item.icon}
-                  className="w-16 h-16 rounded-full"
-                  alt={item.title + "icon"}
+                  className="w-10 h-10 rounded-full border border-gray-700"
+                  alt={item.company}
                 />
-                <h3 className="text-base md:text-lg font-bold text-gray-900 ml-4">
-                  {item.company}-{item.title}
-                </h3>
+                <div>
+                  <h3 className="text-base font-semibold text-white">
+                    {item.company}
+                  </h3>
+                  <p className="text-sm text-gray-400">{item.title}</p>
+                </div>
               </div>
-              <div className=" flex flex-wrap gap-1">
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-1.5 mb-3">
                 {item.skills.map((skill: string) => (
                   <span
                     key={skill}
-                    className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 cursor-default"
+                    className="rounded-full bg-teal-500/10 text-teal-300 px-2.5 py-0.5 text-xs font-medium"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-              <div className="ml-1">
-                <ul>
-                  {item.description.map((desc, index) => (
-                    <li key={desc} className="mt-2 text-gray-700">
-                      {desc}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+              {/* Descriptions */}
+              <ul className="space-y-1.5">
+                {item.description.map((desc) => (
+                  <li key={desc} className="flex items-start gap-2 text-sm text-gray-400 leading-relaxed">
+                    <span className="mt-2 w-1 h-1 rounded-full bg-gray-600 shrink-0" />
+                    {desc}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </div>
-    </div>
+
+      <div className="max-w-4xl mx-auto mt-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+      </div>
+    </section>
   );
 }

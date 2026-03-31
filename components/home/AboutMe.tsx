@@ -1,23 +1,21 @@
 import React from "react";
 import { description } from "../../app/_data/about";
-import Image from "next/image";
 
 export default function AboutMe() {
   return (
-    <div id="AboutMe">
-      <div className="max-w-5xl px-6 mx-auto py-4 md:py-16 flex flex-col items-center text-sm md:text-base">
-        <Image
-          width={160}
-          height={160}
-          src="/charonyu.jpg"
-          className="rounded-full object-cover"
-          alt="Charonyu"
-        />
-        <h2 className="text-3xl my-4 font-bold text-gray-900 text-center flex items-center justify-center">
-          About Me
-        </h2>
-        <div className="md:text-justify text-left">{description}</div>
+    <section id="AboutMe" className="py-16 md:py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold text-white mb-1">About Me</h2>
+        <div className="w-10 h-0.5 bg-teal-500 mb-6" />
+        <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+          {description}
+        </p>
       </div>
-    </div>
+
+      {/* Bottom divider */}
+      <div className="max-w-4xl mx-auto mt-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+      </div>
+    </section>
   );
 }

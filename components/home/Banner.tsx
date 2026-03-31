@@ -1,44 +1,44 @@
-import Image from "next/image";
 import React from "react";
+
 export default function Banner() {
   return (
-    <section>
-      {/* Photo by <a href="https://unsplash.com/@cgower?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christopher Gower</a> on <a href="https://unsplash.com/photos/a-macbook-with-lines-of-code-on-its-screen-on-a-busy-desk-m_HRfLhgABo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-       */}
-      <div className="relative w-full h-[400px] md:block hidden">
-        <Image
-          height={400}
-          width={400}
-          className="w-full h-full object-cover"
-          src="/banner.jpg"
-          alt="Banner"
-          priority={true}
-        />
-        <div className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-55 " />
-        <div className="absolute insert-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="max-w-xl text-white text-center ltr:sm:text-left rtl:sm:text-right">
-            <h1 className="text-3xl font-extrabold sm:text-5xl">
-              CHARON YU RESUME
-            </h1>
+    <section className="relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-600/10 via-transparent to-purple-600/5" />
 
-            <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-              React Developer / Full Stack Engineer
-            </p>
-
+      <div className="relative max-w-4xl mx-auto px-6 py-20 md:py-28">
+        <div className="space-y-5">
+          <p className="text-teal-400 font-medium text-sm tracking-widest uppercase">
+            Hello, I&apos;m
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            Charonyu
+            <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-400 font-normal mt-2">
+              Full Stack Engineer
+            </span>
+          </h1>
+          <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">
+            React Developer passionate about building high-quality web & mobile applications with excellent user experience.
+          </p>
+          <div className="flex gap-3 pt-2">
             <a
               href="/#AboutMe"
-              className="block mt-4 w-25 rounded bg-white  md:px-12 py-3 text-sm font-medium text-teal-600 shadow hover:text-teal-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
+              className="inline-flex items-center px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-gray-900 font-semibold text-sm rounded-lg transition-colors duration-200"
             >
-              Know More About Me
+              About Me
+            </a>
+            <a
+              href="/#Projects"
+              className="inline-flex items-center px-5 py-2.5 border border-gray-600 hover:border-teal-500 text-gray-300 hover:text-teal-400 font-medium text-sm rounded-lg transition-colors duration-200"
+            >
+              View Projects
             </a>
           </div>
         </div>
       </div>
-      <div className="md:hidden block text-center">
-        <h1 className="text-3xl font-extrabold sm:text-5xl mx-auto">
-          CHARON YU RESUME
-        </h1>
-      </div>
+
+      {/* Bottom divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
     </section>
   );
 }

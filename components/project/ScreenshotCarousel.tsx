@@ -35,7 +35,6 @@ export default function ScreenshotCarousel({
     setModalIndex(null);
   }, []);
 
-  // Navigate modal with keyboard
   useEffect(() => {
     if (modalIndex === null) return;
     const handler = (e: KeyboardEvent) => {
@@ -51,7 +50,6 @@ export default function ScreenshotCarousel({
     };
   }, [modalIndex, closeModal, modalInstanceRef]);
 
-  // Sync modal slider to correct slide when opening
   useEffect(() => {
     if (modalIndex !== null && modalInstanceRef.current) {
       modalInstanceRef.current.moveToIdx(modalIndex);
@@ -61,12 +59,12 @@ export default function ScreenshotCarousel({
   return (
     <>
       {/* Desktop: grid */}
-      <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-3">
         {screenshots.map((src, i) => (
           <button
             key={i}
             onClick={() => openModal(i)}
-            className="rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-gray-50 hover:shadow-md hover:border-teal-200 transition-all cursor-zoom-in"
+            className="rounded-xl overflow-hidden border border-[hsl(var(--border))] bg-gray-800/50 hover:border-teal-500/30 transition-all cursor-zoom-in"
           >
             <Image
               src={src}
@@ -86,7 +84,7 @@ export default function ScreenshotCarousel({
             <button
               key={i}
               onClick={() => openModal(i)}
-              className="keen-slider__slide flex items-center justify-center bg-gray-50 cursor-zoom-in"
+              className="keen-slider__slide flex items-center justify-center bg-gray-800/50 cursor-zoom-in"
             >
               <Image
                 src={src}
@@ -104,14 +102,14 @@ export default function ScreenshotCarousel({
             <button
               aria-label="Previous"
               onClick={() => instanceRef.current?.prev()}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-md rounded-full p-2 text-gray-700"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 shadow-md rounded-full p-2 text-white"
             >
               <FaAngleLeft className="text-sm" />
             </button>
             <button
               aria-label="Next"
               onClick={() => instanceRef.current?.next()}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-md rounded-full p-2 text-gray-700"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 shadow-md rounded-full p-2 text-white"
             >
               <FaAngleRight className="text-sm" />
             </button>
@@ -125,7 +123,7 @@ export default function ScreenshotCarousel({
                   className={`h-1.5 rounded-full transition-all ${
                     currentSlide === i
                       ? "w-5 bg-teal-500"
-                      : "w-1.5 bg-gray-300"
+                      : "w-1.5 bg-gray-600"
                   }`}
                 />
               ))}
@@ -137,10 +135,9 @@ export default function ScreenshotCarousel({
       {/* Lightbox Modal */}
       {modalIndex !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm"
           onClick={closeModal}
         >
-          {/* Close button */}
           <button
             aria-label="Close"
             onClick={closeModal}
@@ -149,12 +146,10 @@ export default function ScreenshotCarousel({
             <FaTimes className="text-lg" />
           </button>
 
-          {/* Counter */}
           <div className="absolute top-5 left-1/2 -translate-x-1/2 text-white/70 text-sm">
             {(modalInstanceRef.current?.track.details.rel ?? modalIndex) + 1} / {screenshots.length}
           </div>
 
-          {/* Slider */}
           <div
             className="w-full max-w-4xl mx-4"
             onClick={(e) => e.stopPropagation()}
@@ -176,7 +171,6 @@ export default function ScreenshotCarousel({
               ))}
             </div>
 
-            {/* Nav arrows */}
             {screenshots.length > 1 && (
               <>
                 <button

@@ -5,7 +5,7 @@ import "./globals.css";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import "katex/dist/katex.min.css";
-import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,8 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <Sidebar />
+        {/* Main content area: offset by sidebar on desktop, offset by topbar on mobile */}
+        <main className="lg:ml-[240px] pt-14 lg:pt-0 min-h-screen">
+          {children}
+        </main>
         <Script
           src="https://analysis-service.app.charonyu.cc/sdk/tracker.js"
           data-site="resume"
