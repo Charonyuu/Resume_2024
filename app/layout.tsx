@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
@@ -35,6 +36,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
+        <Script
+          src="https://analysis-service.app.charonyu.cc/sdk/tracker.js"
+          data-site="resume"
+          data-page="home"
+          data-api="https://analysis-service.app.charonyu.cc"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
