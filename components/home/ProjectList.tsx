@@ -19,10 +19,16 @@ export default function ProjectList() {
           {projectData.map((project) => {
             const hasDetailPage = !!project.slug;
 
+            const Wrapper = hasDetailPage ? Link : "div";
+            const wrapperProps = hasDetailPage
+              ? { href: `/projects/${project.slug}` }
+              : {};
+
             return (
-              <div
+              <Wrapper
                 key={project.title}
-                className={`group rounded-xl overflow-hidden bg-[hsl(var(--card))] border border-[hsl(var(--border))] hover:border-teal-500/30 transition-all duration-300 flex flex-col ${
+                {...(wrapperProps as any)}
+                className={`group rounded-xl overflow-hidden bg-[hsl(var(--card))] border border-[hsl(var(--border))] hover:border-teal-500/30 transition-all duration-300 flex flex-col cursor-pointer ${
                   project.featured ? "md:col-span-2" : ""
                 }`}
               >
@@ -85,30 +91,40 @@ export default function ProjectList() {
                   {/* Actions */}
                   <div className="flex items-center gap-2 mt-auto pt-3 border-t border-[hsl(var(--border))]">
                     {hasDetailPage && (
-                      <Link
-                        href={`/projects/${project.slug}`}
+                      <span
                         className="inline-flex items-center gap-1.5 bg-teal-500 hover:bg-teal-400 text-gray-900 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
                       >
                         Details
                         <FaArrowRight className="text-[10px]" />
-                      </Link>
+                      </span>
                     )}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors ${
-                        hasDetailPage
-                          ? "text-gray-400 hover:text-teal-400 hover:bg-teal-500/10"
-                          : "bg-teal-500 hover:bg-teal-400 text-gray-900 font-semibold"
-                      }`}
-                    >
-                      {hasDetailPage ? "Visit" : "View Project"}
-                      <FaExternalLinkAlt className="text-[10px]" />
-                    </a>
+                    {hasDetailPage ? (
+                      <span
+                        role="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.open(project.link, "_blank", "noopener,noreferrer");
+                        }}
+                        className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors text-gray-400 hover:text-teal-400 hover:bg-teal-500/10 cursor-pointer"
+                      >
+                        Visit
+                        <FaExternalLinkAlt className="text-[10px]" />
+                      </span>
+                    ) : (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors bg-teal-500 hover:bg-teal-400 text-gray-900 font-semibold"
+                      >
+                        View Project
+                        <FaExternalLinkAlt className="text-[10px]" />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </div>
+              </Wrapper>
             );
           })}
         </div>
