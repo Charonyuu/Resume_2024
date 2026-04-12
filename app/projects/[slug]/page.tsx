@@ -10,6 +10,7 @@ import {
   FaCog,
 } from "react-icons/fa";
 import ScreenshotCarousel from "@/components/project/ScreenshotCarousel";
+import LumeeProjectPage from "@/components/project/LumeeProjectPage";
 
 type Props = {
   params: { slug: string };
@@ -35,6 +36,15 @@ export default function ProjectDetailPage({ params }: Props) {
 
   if (!project || !project.detailContent) {
     notFound();
+  }
+
+  // Lumee 專案用獨立的暖色風格頁面
+  if (params.slug === "lumee") {
+    return (
+      <LumeeProjectPage
+        project={project as typeof project & { detailContent: NonNullable<typeof project.detailContent> }}
+      />
+    );
   }
 
   const { detailContent } = project;

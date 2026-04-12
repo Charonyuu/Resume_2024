@@ -37,6 +37,11 @@ export default function ProjectList() {
                   className={`relative overflow-hidden ${project.featured ? "h-48 sm:h-56" : "h-40"} ${
                     project.contain ? "flex items-center justify-center bg-gray-800/50" : "bg-gray-800/50"
                   }`}
+                  style={project.slug === "lumee" ? {
+                    background: "#FDF6EC",
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 80 80'%3E%3Cg fill='%235C4A32' opacity='0.06'%3E%3Cellipse cx='40' cy='45' rx='8' ry='10'/%3E%3Ccircle cx='30' cy='34' r='4.5'/%3E%3Ccircle cx='50' cy='34' r='4.5'/%3E%3Ccircle cx='25' cy='42' r='3.5'/%3E%3Ccircle cx='55' cy='42' r='3.5'/%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundSize: "60px 60px",
+                  } : undefined}
                 >
                   {project.contain ? (
                     <Image
@@ -44,7 +49,7 @@ export default function ProjectList() {
                       alt={project.title}
                       width={200}
                       height={200}
-                      className="h-28 w-28 object-contain rounded-[22%] transition-transform duration-500 group-hover:scale-105"
+                      className={`h-28 w-28 object-contain rounded-[22%] transition-transform duration-500 group-hover:scale-105${project.slug === "lumee" ? " drop-shadow-lg" : ""}`}
                     />
                   ) : (
                     <Image
