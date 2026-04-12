@@ -1,3 +1,21 @@
+import type React from "react";
+
+export interface DetailTheme {
+  bgColor: string;
+  heroBg: string;
+  textColor: string;
+  subtextColor: string;
+  accentColor: string;
+  accentHoverColor: string;
+  cardBg: string;
+  cardBorder: string;
+  tagBg: string;
+  patternStyle?: React.CSSProperties;
+  stickers?: { src: string; alt: string }[];
+  legalLinks?: { label: string; href: string }[];
+  copyright?: string;
+}
+
 export interface ProjectData {
   slug?: string; // for projects with their own detail page
   year: string;
@@ -8,8 +26,11 @@ export interface ProjectData {
   link: string;
   contain?: boolean;
   imageBg?: string; // custom bg color for image area
-  featured?: boolean; // show larger in grid
+  imageStyle?: React.CSSProperties; // custom inline style for image area background
+  featured?: boolean; // show "Latest" badge
+  wide?: boolean; // span 2 columns in grid
   tags?: string[];
+  detailTheme?: DetailTheme;
   detailContent?: {
     subtitle: string;
     features: string[];
@@ -20,6 +41,149 @@ export interface ProjectData {
 
 export const projectData: ProjectData[] = [
   {
+    slug: "swipee",
+    year: "2026",
+    date: "Apr",
+    featured: true,
+    title: "Swipee - 滑動整理你的相簿",
+    image: "/project/swipee-icon.png",
+    contain: true,
+    imageBg: "bg-gradient-to-br from-[#C4A5E2] to-[#E8A0BE]",
+    imageStyle: {
+      background: "linear-gradient(135deg, #E0CFF0 0%, #ECCDE2 50%, #CCDDF0 100%)",
+      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Cg fill='none' stroke='%238A64B8' opacity='0.25' stroke-width='2'%3E%3Crect x='12' y='15' width='18' height='23' rx='2.5' transform='rotate(-10 21 26)'/%3E%3Crect x='35' y='13' width='18' height='23' rx='2.5' transform='rotate(8 44 24)'/%3E%3Cpath d='M30 52 l7-5.5 l-1.5 3.5 l5.5-0.5 l-7 5.5 l1.5-3.5z' fill='%238A64B8' stroke='none' opacity='1'/%3E%3C/g%3E%3C/svg%3E")`,
+      backgroundSize: "70px 70px",
+    },
+    description:
+      "iOS 照片整理 App，用直覺的滑動手勢快速分類、清理相簿。支援智慧分類建議（AI 辨識場景）、人臉辨識分群、相簿管理、iCloud 快取優化，讓整理照片像刷卡片一樣輕鬆。",
+    link: "https://apps.apple.com/app/swipee",
+    tags: ["Swift", "SwiftUI", "Vision", "iOS"],
+    detailTheme: {
+      bgColor: "#F3EDF8",
+      heroBg: "linear-gradient(135deg, #E0CFF0 0%, #F3EDF8 50%, #ECCDE2 100%)",
+      textColor: "#2D1E3D",
+      subtextColor: "#5C4A72",
+      accentColor: "#8A64B8",
+      accentHoverColor: "#7350A0",
+      cardBg: "rgba(255,255,255,0.6)",
+      cardBorder: "#D5C0E8",
+      tagBg: "#E8D5F5",
+      patternStyle: {
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Cg fill='none' stroke='%238A64B8' opacity='0.25' stroke-width='2'%3E%3Crect x='12' y='15' width='18' height='23' rx='2.5' transform='rotate(-10 21 26)'/%3E%3Crect x='35' y='13' width='18' height='23' rx='2.5' transform='rotate(8 44 24)'/%3E%3Cpath d='M30 52 l7-5.5 l-1.5 3.5 l5.5-0.5 l-7 5.5 l1.5-3.5z' fill='%238A64B8' stroke='none' opacity='1'/%3E%3C/g%3E%3C/svg%3E")`,
+        backgroundSize: "70px 70px",
+      },
+      legalLinks: [
+        { label: "Privacy Policy", href: "/swipee/privacy" },
+        { label: "Terms of Use", href: "/swipee/terms" },
+      ],
+      copyright: "Swipee",
+    },
+    detailContent: {
+      subtitle: "Swipe to Organize — 讓整理照片變得有趣",
+      features: [
+        "卡片式滑動介面：左滑刪除、右滑保留、下滑分類、上滑收藏",
+        "時間軸瀏覽模式：按月份格狀瀏覽所有照片",
+        "AI 智慧分類建議：自動辨識食物、動物、人物、風景等 15+ 場景",
+        "人臉辨識與分群：自動依人物分組，快速整理人像照片",
+        "相簿管理：建立、排序、隱藏相簿，拖曳排列順序",
+        "iCloud 快取優化：預載 50 張照片，滑動零卡頓",
+        "4 秒復原機制：誤刪可立即撤銷",
+        "雙語支援（繁體中文 / English）",
+      ],
+      techStack: [
+        "Swift / SwiftUI",
+        "Photos Framework",
+        "Vision Framework",
+        "CoreLocation",
+        "AVKit",
+        "UserDefaults",
+      ],
+      screenshots: [
+        "/project/swipee/zh_1.png",
+        "/project/swipee/zh_2.png",
+        "/project/swipee/zh_3.png",
+        "/project/swipee/zh_4.png",
+        "/project/swipee/zh_5.png",
+      ],
+    },
+  },
+  {
+    slug: "lumee",
+    year: "2026",
+    date: "Mar",
+    featured: true,
+    title: "Lumee - 可愛桌面 Widget 自訂 App",
+    image: "/project/lumee-icon.png",
+    contain: true,
+    imageBg: "bg-gradient-to-br from-[#F5E6C8] to-[#E8C88A]",
+    imageStyle: {
+      background: "#FDF6EC",
+      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 80 80'%3E%3Cg fill='%235C4A32' opacity='0.06'%3E%3Cellipse cx='40' cy='45' rx='8' ry='10'/%3E%3Ccircle cx='30' cy='34' r='4.5'/%3E%3Ccircle cx='50' cy='34' r='4.5'/%3E%3Ccircle cx='25' cy='42' r='3.5'/%3E%3Ccircle cx='55' cy='42' r='3.5'/%3E%3C/g%3E%3C/svg%3E")`,
+      backgroundSize: "60px 60px",
+    },
+    description:
+      "iOS 桌面 Widget 自訂 App，結合照片、可愛貼圖、主題包與實用工具（天氣、倒數日、行事曆等），打造獨特的 iPhone 主畫面。支援 Lumee Pro 訂閱、代幣系統、多語系、iCloud 同步。",
+    link: "https://apps.apple.com/app/lumee",
+    tags: ["Swift", "SwiftUI", "WidgetKit", "iOS", "StoreKit 2"],
+    detailTheme: {
+      bgColor: "#FDF6EC",
+      heroBg: "linear-gradient(135deg, #F5E6C8 0%, #FDF6EC 50%, #E8D5B5 100%)",
+      textColor: "#3D2C1E",
+      subtextColor: "#5C4A32",
+      accentColor: "#8B6914",
+      accentHoverColor: "#705510",
+      cardBg: "rgba(255,255,255,0.6)",
+      cardBorder: "#E8D5B5",
+      tagBg: "#F5E6C8",
+      patternStyle: {
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%235C4A32'%3E%3Cellipse cx='40' cy='45' rx='8' ry='10'/%3E%3Ccircle cx='30' cy='34' r='4.5'/%3E%3Ccircle cx='50' cy='34' r='4.5'/%3E%3Ccircle cx='25' cy='42' r='3.5'/%3E%3Ccircle cx='55' cy='42' r='3.5'/%3E%3C/g%3E%3C/svg%3E")`,
+        backgroundSize: "80px 80px",
+      },
+      stickers: [
+        { src: "/lumee/pet_shiba.png", alt: "Shiba" },
+        { src: "/lumee/pet_cat_orange.png", alt: "Cat" },
+        { src: "/lumee/pet_hamster.png", alt: "Hamster" },
+        { src: "/lumee/pet_corgi.png", alt: "Corgi" },
+        { src: "/lumee/pet_poodle.png", alt: "Poodle" },
+      ],
+      legalLinks: [
+        { label: "Privacy Policy", href: "/lumee/privacy" },
+        { label: "Terms of Use", href: "/lumee/terms" },
+      ],
+      copyright: "Lumee",
+    },
+    detailContent: {
+      subtitle: "Photos, Stickers & Widgets — All in One",
+      features: [
+        "多款可愛主題包：柴犬日常、貓咪、倉鼠、兄弟等風格",
+        "DIY 自組模式：選照片 + 拖曳貼圖，自由打造 Widget",
+        "實用工具 Widget：天氣、倒數日、生日、行事曆、股市、星座、匯率",
+        "WidgetKit 主畫面小工具，即時顯示在 iPhone 桌面",
+        "Lumee Pro 訂閱：解鎖全部主題、貼圖包及搶先內容",
+        "代幣系統：App 內購買代幣解鎖個別主題包",
+        "寵物貼紙系統（柴犬、柯基、貴賓、倉鼠等）",
+        "多語系支援（繁體中文 / English）、iCloud 同步",
+      ],
+      techStack: [
+        "Swift / SwiftUI",
+        "WidgetKit",
+        "StoreKit 2",
+        "WeatherKit",
+        "HealthKit",
+        "CoreLocation",
+        "Cloudflare R2",
+        "Node.js / MongoDB (Backend)",
+      ],
+      screenshots: [
+        "/project/lumee-1.png",
+        "/project/lumee-2.png",
+        "/project/lumee-3.png",
+        "/project/lumee-4.png",
+        "/project/lumee-5.png",
+      ],
+    },
+  },
+  {
     slug: "tripi",
     year: "2025",
     date: "Mar",
@@ -28,7 +192,7 @@ export const projectData: ProjectData[] = [
     description:
       "Tripi 是一個旅行行程規劃平台，支援多人協作、AI 行程建議、打包清單、行程匯出與分享等功能。使用 Next.js、TypeScript、Tailwind CSS 打造，支援 PWA 跨裝置同步。",
     link: "https://tripi.app.charonyu.cc/",
-    featured: true,
+    wide: true,
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "PWA", "AI"],
     detailContent: {
       subtitle: "AI 驅動的協作旅行行程規劃工具",
@@ -65,7 +229,7 @@ export const projectData: ProjectData[] = [
     description:
       "自建的一站式開發者部署平台，整合 GitHub Webhook 自動部署、Docker 容器管理、動態子網域路由與服務監控，讓 Side Project 從開發到上線一鍵完成。",
     link: "https://shiplaunch.charonyu.cc/",
-    featured: true,
+    wide: true,
     tags: ["Next.js", "Express", "Docker", "MongoDB"],
     detailContent: {
       subtitle: "一站式自架部署平台 — 部署、自動化、監控",
@@ -130,49 +294,6 @@ export const projectData: ProjectData[] = [
         "Cookie Auth",
       ],
       screenshots: ["/project/analysis-service.png"],
-    },
-  },
-  {
-    slug: "lumee",
-    year: "2025",
-    date: "Mar",
-    title: "Lumee - 可愛桌面 Widget 自訂 App",
-    image: "/project/lumee-icon.png",
-    contain: true,
-    imageBg: "bg-gradient-to-br from-[#F5E6C8] to-[#E8C88A]",
-    description:
-      "iOS 桌面 Widget 自訂 App，結合照片、可愛貼圖、主題包與實用工具（天氣、倒數日、行事曆等），打造獨特的 iPhone 主畫面。支援 Lumee Pro 訂閱、代幣系統、多語系、iCloud 同步。",
-    link: "https://apps.apple.com/app/lumee",
-    tags: ["Swift", "SwiftUI", "WidgetKit", "iOS", "StoreKit 2"],
-    detailContent: {
-      subtitle: "Photos, Stickers & Widgets — All in One",
-      features: [
-        "多款可愛主題包：柴犬日常、貓咪、倉鼠、兄弟等風格",
-        "DIY 自組模式：選照片 + 拖曳貼圖，自由打造 Widget",
-        "實用工具 Widget：天氣、倒數日、生日、行事曆、股市、星座、匯率",
-        "WidgetKit 主畫面小工具，即時顯示在 iPhone 桌面",
-        "Lumee Pro 訂閱：解鎖全部主題、貼圖包及搶先內容",
-        "代幣系統：App 內購買代幣解鎖個別主題包",
-        "寵物貼紙系統（柴犬、柯基、貴賓、倉鼠等）",
-        "多語系支援（繁體中文 / English）、iCloud 同步",
-      ],
-      techStack: [
-        "Swift / SwiftUI",
-        "WidgetKit",
-        "StoreKit 2",
-        "WeatherKit",
-        "HealthKit",
-        "CoreLocation",
-        "Cloudflare R2",
-        "Node.js / MongoDB (Backend)",
-      ],
-      screenshots: [
-        "/project/lumee-1.png",
-        "/project/lumee-2.png",
-        "/project/lumee-3.png",
-        "/project/lumee-4.png",
-        "/project/lumee-5.png",
-      ],
     },
   },
   {

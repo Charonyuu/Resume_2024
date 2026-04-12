@@ -10,7 +10,7 @@ import {
   FaCog,
 } from "react-icons/fa";
 import ScreenshotCarousel from "@/components/project/ScreenshotCarousel";
-import LumeeProjectPage from "@/components/project/LumeeProjectPage";
+import ThemedProjectPage from "@/components/project/ThemedProjectPage";
 
 type Props = {
   params: { slug: string };
@@ -38,11 +38,11 @@ export default function ProjectDetailPage({ params }: Props) {
     notFound();
   }
 
-  // Lumee 專案用獨立的暖色風格頁面
-  if (params.slug === "lumee") {
+  // 有 detailTheme 的專案使用主題風格頁面
+  if (project.detailTheme) {
     return (
-      <LumeeProjectPage
-        project={project as typeof project & { detailContent: NonNullable<typeof project.detailContent> }}
+      <ThemedProjectPage
+        project={project as typeof project & { detailTheme: NonNullable<typeof project.detailTheme>; detailContent: NonNullable<typeof project.detailContent> }}
       />
     );
   }
