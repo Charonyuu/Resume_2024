@@ -149,6 +149,7 @@ export const projectData: ProjectData[] = [
       legalLinks: [
         { label: "Privacy Policy", href: "/lumee/privacy" },
         { label: "Terms of Use", href: "/lumee/terms" },
+        { label: "Roadmap", href: "/lumee/roadmap" },
       ],
       copyright: "Lumee",
     },

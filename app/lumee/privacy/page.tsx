@@ -272,6 +272,10 @@ function Footer({ lang }: { lang: string }) {
         <a href="/lumee/terms" className="text-[#8B6914] hover:underline">
           {lang === "zh" ? "使用條款" : "Terms of Use"}
         </a>
+        <span>·</span>
+        <a href="/lumee/roadmap" className="text-[#8B6914] hover:underline">
+          Roadmap
+        </a>
       </div>
       <p>&copy; {new Date().getFullYear()} Lumee. All rights reserved.</p>
     </footer>
