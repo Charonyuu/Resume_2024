@@ -51,7 +51,7 @@ export default function Sidebar() {
       <div className="flex flex-col items-center">
         <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-teal-500/30 mb-4">
           <Image
-            src="/project/me.JPG"
+            src="/project/avatar.png"
             alt="Charonyu"
             fill
             className="object-cover object-top"
@@ -127,7 +127,7 @@ export default function Sidebar() {
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-4 border-b bg-[hsl(var(--sidebar))] border-[hsl(var(--sidebar-border))]">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/project/me.JPG"
+            src="/project/avatar.png"
             alt="Charonyu"
             width={32}
             height={32}

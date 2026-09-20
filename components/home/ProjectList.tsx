@@ -99,7 +99,7 @@ export default function ProjectList() {
                         <FaArrowRight className="text-[10px]" />
                       </span>
                     )}
-                    {hasDetailPage ? (
+                    {hasDetailPage && project.link && project.link !== "#" ? (
                       <span
                         role="button"
                         onClick={(e) => {
@@ -112,7 +112,7 @@ export default function ProjectList() {
                         Visit
                         <FaExternalLinkAlt className="text-[10px]" />
                       </span>
-                    ) : (
+                    ) : !hasDetailPage && project.link ? (
                       <a
                         href={project.link}
                         target="_blank"
@@ -122,7 +122,7 @@ export default function ProjectList() {
                         View Project
                         <FaExternalLinkAlt className="text-[10px]" />
                       </a>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </Wrapper>
