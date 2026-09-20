@@ -48,6 +48,11 @@ export default function ProjectDetailPage({ params }: Props) {
   }
 
   const { detailContent } = project;
+  const hasWideHero = [
+    "job-pocket",
+    "cooking-party",
+    "claude-prewarm",
+  ].includes(project.slug ?? "");
 
   return (
     <div className="min-h-screen">
@@ -63,7 +68,7 @@ export default function ProjectDetailPage({ params }: Props) {
           </Link>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-            <div className="lg:col-span-3">
+            <div className={hasWideHero ? "lg:col-span-2" : "lg:col-span-3"}>
               <div className="flex flex-wrap gap-2 mb-3">
                 {project.tags?.map((tag) => (
                   <span
@@ -80,23 +85,28 @@ export default function ProjectDetailPage({ params }: Props) {
               <p className="text-gray-400 leading-relaxed mb-5">
                 {detailContent.subtitle}
               </p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-gray-900 font-semibold px-5 py-2.5 rounded-xl text-sm transition-colors"
-              >
-                Visit Project
-                <FaExternalLinkAlt className="text-xs" />
-              </a>
+              {project.link && project.link !== "#" && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-gray-900 font-semibold px-5 py-2.5 rounded-xl text-sm transition-colors"
+                >
+                  Visit Project
+                  <FaExternalLinkAlt className="text-xs" />
+                </a>
+              )}
             </div>
 
-            <div className="lg:col-span-2 relative rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm max-w-[220px] mx-auto lg:mx-0 border border-[hsl(var(--border))]">
+            <div
+              className={`${hasWideHero ? "w-full lg:col-span-3" : "max-w-[220px] lg:col-span-2"} relative overflow-hidden rounded-2xl border border-[hsl(var(--border))] bg-white/5 shadow-2xl backdrop-blur-sm mx-auto lg:mx-0`}
+            >
               <Image
                 src={project.image}
                 alt={project.title}
-                width={280}
-                height={210}
+                width={hasWideHero ? 1600 : 280}
+                height={hasWideHero ? 900 : 210}
+                sizes={hasWideHero ? "(max-width: 1024px) calc(100vw - 3rem), 52rem" : "220px"}
                 className={`w-full h-auto ${
                   project.contain ? "object-contain p-4 rounded-3xl" : "object-cover"
                 }`}
