@@ -46,11 +46,17 @@ export const projectData: ProjectData[] = [
     date: "Sep",
     featured: true,
     title: "Job Pocket - 求職管理工具",
-    image: "/project/job-pocket/cover-wide.png",
+    image: "/project/job-pocket/icon.png",
+    contain: true,
+    imageStyle: {
+      background:
+        "radial-gradient(circle at 22% 18%, rgba(86, 177, 255, 0.55), transparent 34%), linear-gradient(135deg, #07152f 0%, #0a3c91 52%, #071534 100%)",
+      backgroundImage:
+        "radial-gradient(circle at 78% 76%, rgba(78, 107, 255, 0.35), transparent 30%), radial-gradient(circle at 22% 18%, rgba(86, 177, 255, 0.55), transparent 34%), linear-gradient(135deg, #07152f 0%, #0a3c91 52%, #071534 100%)",
+    },
     description:
       "把分散的職缺、申請進度與面試準備整理進同一個 iOS 工作空間，並透過 AI 協助分析職缺重點與準備方向。",
     link: "",
-    wide: true,
     tags: ["Swift", "SwiftUI", "iOS", "AI"],
     detailContent: {
       subtitle: "從收藏職缺到準備面試，一個地方完成",
@@ -75,7 +81,14 @@ export const projectData: ProjectData[] = [
     year: "2026",
     date: "In progress",
     title: "Cooking Party - 多人料理派對遊戲",
-    image: "/project/cooking-party/cover-wide.png",
+    image: "/project/cooking-party/icon.png",
+    contain: true,
+    imageStyle: {
+      background:
+        "radial-gradient(circle at 22% 18%, rgba(255, 241, 166, 0.9), transparent 34%), linear-gradient(135deg, #9a3918 0%, #e58524 54%, #6f2416 100%)",
+      backgroundImage:
+        "radial-gradient(circle at 78% 74%, rgba(118, 39, 21, 0.38), transparent 32%), radial-gradient(circle at 22% 18%, rgba(255, 241, 166, 0.9), transparent 34%), linear-gradient(135deg, #9a3918 0%, #e58524 54%, #6f2416 100%)",
+    },
     description:
       "正在製作的多人料理派對遊戲，包含合作闖關與 2v2 對戰，針對手機操作打造快速、有趣的廚房混戰。",
     link: "",
